@@ -50,6 +50,7 @@ module.exports = webpackMerge(webpackCommon, {
               sourceMap: true,
               sourceMapContents: true
             }
+          
           }
         ]
       }
