@@ -10,10 +10,10 @@ export default class PortfolioContainer extends Component {
             pageTitle: "Welcome to my portfolio!",
             isLoading: false,
             data: [
-                {title: "California", category: "West Coast"},
-                {title: "Thailand", category: "Asia"},
-                {title: "Hawaii", category: "Pacific Ocean"},
-                {title: "Florida", category: "East Coast"}
+                {title: "California", category: "West Coast", slug: "california" },
+                {title: "Thailand", category: "Asia", slug: "thailand" },
+                {title: "Hawaii", category: "Pacific Ocean", slug: "hawaii" },
+                {title: "Florida", category: "East Coast", slug: "florida" }
             ]
         };
 
@@ -30,15 +30,11 @@ export default class PortfolioContainer extends Component {
 
     portfolioItems() {
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} />;
+            return <PortfolioItem title={item.title} slug={item.slug}/>;
         })
     }
 
-    handlePageTitleUpdate() {
-        this.setState({
-            pageTitle: "Something else"
-        });
-    }
+    
 
     render() {
         if (this.state.isLoading) {
