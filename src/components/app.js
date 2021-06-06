@@ -11,7 +11,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import NoMAtch from "./pages/no-match";
 
 export default class App extends Component {
-  render() {
+ render() {
     return (
       <div className='app'>
         <Router>
