@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import moment from 'moment';
+import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavigationContainer from "./navigation/navigation-container";
@@ -11,15 +10,11 @@ import PortfolioDetail from "./portfolio/portfolio-detail";
 import NoMAtch from "./pages/no-match";
 
 export default class App extends Component {
- render() {
+  render() {
     return (
-      <div className='app'>
+      <div className="container">
         <Router>
           <div>
-            <h1>Natalie Kaelin Portfolio</h1>
-            <div>
-              {moment().format('MMMM Do YYYY, h:mm:ss a')}
-            </div>
             <NavigationContainer />
 
             <Switch>
@@ -27,7 +22,11 @@ export default class App extends Component {
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/blog" component={Blog} />
-              <Route exact path="/portfolio/:slug" component={PortfolioDetail} />
+              <Route
+                exact
+                path="/portfolio/:slug"
+                component={PortfolioDetail}
+              />
               <Route component={NoMAtch} />
             </Switch>
           </div>
