@@ -8,6 +8,7 @@ import {
   faSignOutAlt,
   faEdit,
   faTimesCircle,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
@@ -15,12 +16,13 @@ import Home from "./pages/home";
 import About from "./pages/about-me";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
+import BlogDetail from "./pages/blog-detail";
 import PortfolioManager from "./pages/portfolio-manager";
 import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMAtch from "./pages/no-match";
 
-library.add(faTrash, faSignOutAlt, faEdit, faTimesCircle);
+library.add(faTrash, faSignOutAlt, faEdit, faTimesCircle, faSpinner);
 
 export default class App extends Component {
   constructor(props) {
@@ -117,6 +119,7 @@ export default class App extends Component {
               />
               <Route path="/about-me" component={About} />
               <Route path="/blog" component={Blog} />
+              <Route path="/b/:slug" component={BlogDetail} />
               <Route path="/contact" component={Contact} />
               {this.state.loggedInStatus === "LOGGED_IN"
                 ? this.authorizedPages()
