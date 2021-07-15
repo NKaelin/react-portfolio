@@ -23,6 +23,14 @@ class Blog extends Component {
     window.addEventListener("scroll", this.onScroll, false);
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleNewBlogSubmit = this.handleNewBlogSubmit.bind(this);
+  }
+
+  handleNewBlogSubmit(blog) {
+    this.setState({
+      blogItems: [blog].concat(this.state.blogItems),
+      blogModalIsOpen: false,
+    });
   }
 
   handleModalClose() {
@@ -57,6 +65,7 @@ class Blog extends Component {
     this.setState({
       currentPage: this.state.currentPage + 1,
     });
+
     axios
       .get(
         `https://nataliekaelin.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`,
@@ -65,7 +74,7 @@ class Blog extends Component {
         }
       )
       .then((response) => {
-        console.log("getting more posts", response.data);
+        console.log("getting", response.data);
         this.setState({
           blogItems: this.state.blogItems.concat(response.data.portfolio_blogs),
           totalCount: response.data.meta.total_records,
@@ -92,14 +101,21 @@ class Blog extends Component {
     return (
       <div className="blog-container">
         <BlogModal
+          handleNewBlogSubmit={this.handleNewBlogSubmit}
           handleModalClose={this.handleModalClose}
           modalIsOpen={this.state.blogModalIsOpen}
         />
 
-        <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>Open Modal</a>
-        </div>
+        {this.props.loggedInStatus === "LOGGED_IN" ? (
+          <div className="new-blog-link">
+            <a onClick={this.handleNewBlogClick}>
+              <FontAwesomeIcon icon="plus-square" />
+            </a>
+          </div>
+        ) : null}
+
         <div className="content-container">{blogRecords}</div>
+
         {this.state.isLoading ? (
           <div className="loader-icon">
             <FontAwesomeIcon icon="spinner" spin />
