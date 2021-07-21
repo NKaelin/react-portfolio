@@ -1,0 +1,30 @@
+.portfolio-detail-wrapper{
+  width: 100vw;
+
+  .portfolio-detail-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 10px;
+  }
+
+  .portfolio-detail-description-wrapper{
+    text-align: center;
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .name {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+  }
+
+  .description {
+    width: 700px;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+  }
+}

@@ -9,6 +9,11 @@
     margin-bottom: 0px;
   }
 
+  .two-column select {
+    font-family: "Signika Negative", sans-serif;
+    color: $grey;
+  }
+
   .image-uploaders {
     @include base-grid();
     grid-template-columns: 200px;
