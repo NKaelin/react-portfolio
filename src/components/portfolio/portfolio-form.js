@@ -249,7 +249,7 @@ export default class PortfolioForm extends Component {
 
               <div className="image-removal-link">
                 <a onClick={() => this.deleteImage("thumb_image")}>
-                  <FontAwesomeIcon icon="times-circle" />
+                  <FontAwesomeIcon icon="trash" />
                 </a>
               </div>
             </div>

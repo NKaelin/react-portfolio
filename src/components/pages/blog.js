@@ -121,7 +121,7 @@ class Blog extends Component {
           <div key={blogItem.id} className="admin-blog-wrapper">
             <BlogItem blogItem={blogItem} />
             <a onClick={() => this.handleDeleteClick(blogItem)}>
-              <FontAwesomeIcon icon="times-circle" />
+              <FontAwesomeIcon icon="trash" />
             </a>
           </div>
         );
